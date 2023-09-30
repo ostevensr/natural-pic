@@ -20,6 +20,7 @@ function Gallery( ) {
     if (imagen.src.endsWith("heart-filled.svg")) {
    
       imagen.src = "./src/assets/icons/heart.svg";
+
     } else {
       
       imagen.src = "./src/assets/icons/heart-filled.svg";
