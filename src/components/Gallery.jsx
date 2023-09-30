@@ -1,4 +1,4 @@
-import { useContext, useState} from "react";
+import { useContext } from "react";
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
@@ -8,18 +8,14 @@ import MyContext from "../Context";
 function Gallery( ) {
 
   const { fotos } = useContext(MyContext);
-  const [fotosState, setFotosState] = useState(fotos);
 
   //console.log(fotos)
 
   const meGusta = (index) => {
-    const nuevasFotos = [...fotos];
 
-    nuevasFotos[index].liked = !nuevasFotos[index].liked;
+    fotos[index].liked = !fotos[index].liked;
 
-    setFotosState(nuevasFotos);
-
-    console.log(nuevasFotos)
+    //console.log(fotos)
   };
 
   return (

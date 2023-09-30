@@ -71,17 +71,6 @@ a {
   padding: 2rem;
 }
 
-.elementos-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.boton-mg {
-  align-content: end;
-}
-
-.link-home {
-  display: flex;
-  align-items: end;
+.titulo-seccion {
+  padding-top: 1rem;
 }
