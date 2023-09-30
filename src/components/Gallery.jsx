@@ -15,7 +15,16 @@ function Gallery( ) {
 
     fotos[index].liked = !fotos[index].liked;
 
-    //console.log(fotos)
+    const imagen = event.target;
+    
+    if (imagen.src.endsWith("heart-filled.svg")) {
+   
+      imagen.src = "./src/assets/icons/heart.svg";
+    } else {
+      
+      imagen.src = "./src/assets/icons/heart-filled.svg";
+    }
+
   };
 
   return (
@@ -29,7 +38,7 @@ function Gallery( ) {
           <Card.ImgOverlay>
             <div className="elementos-card">
               <div className="boton-mg">
-                <img  onClick={() => meGusta(i)} src="./src/assets/icons/heart.svg"></img>
+                <img id="imagenMeGusta" onClick={(event) => meGusta(i,event)} src="./src/assets/icons/heart.svg"></img>
               </div>
               <div className="desc-imagen">
                 <Card.Text>
