@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState} from "react";
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
@@ -8,17 +8,32 @@ import MyContext from "../Context";
 function Gallery( ) {
 
   const { fotos } = useContext(MyContext);
+  const [fotosState, setFotosState] = useState(fotos);
 
-  console.log(fotos)
+  //console.log(fotos)
 
-  const galeria = fotos.map((foto,i) => (
-    <Col key={i} xs={15} sm={6} md={5} lg={3} xl={3}>
-        <Card className="bg-dark text-white">
+  const meGusta = (index) => {
+    const nuevasFotos = [...fotos];
+
+    nuevasFotos[index].liked = !nuevasFotos[index].liked;
+
+    setFotosState(nuevasFotos);
+
+    console.log(nuevasFotos)
+  };
+
+  return (
+    <div className="galeria">
+ 
+      <div className="gallery grid-columns-5 p-3">
+
+      {fotos.map((foto,i) => (
+        <Card key={i} className="bg-dark text-white">
           <Card.Img src={foto.src.tiny}/>
           <Card.ImgOverlay>
             <div className="elementos-card">
               <div className="boton-mg">
-                <img src="./src/assets/icons/heart.svg"></img>
+                <img  onClick={() => meGusta(i)} src="./src/assets/icons/heart.svg"></img>
               </div>
               <div className="desc-imagen">
                 <Card.Text>
@@ -28,17 +43,11 @@ function Gallery( ) {
             </div>
           </Card.ImgOverlay>
         </Card>
-      </Col>
     )
-  )
+  )}
+      
+      </div>;
 
-  return (
-    <div className="galeria">
-      <Row>
-
-        {galeria}
-
-      </Row>
     </div>
     
   );
