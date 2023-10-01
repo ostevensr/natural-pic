@@ -26,6 +26,8 @@ function Gallery( ) {
       imagen.src = "./src/assets/icons/heart-filled.svg";
     }
 
+    //console.log(fotos)
+
   };
 
   return (
