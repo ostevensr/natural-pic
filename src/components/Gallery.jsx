@@ -5,6 +5,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import MyContext from "../Context";
 
+import IconHeart from "./IconHeart";
+
 function Gallery( ) {
 
   const { fotos } = useContext(MyContext);
@@ -16,15 +18,6 @@ function Gallery( ) {
     fotos[index].liked = !fotos[index].liked;
 
     const imagen = event.target;
-    
-    if (imagen.src.endsWith("heart-filled.svg")) {
-   
-      imagen.src = "./src/assets/icons/heart.svg";
-
-    } else {
-      
-      imagen.src = "./src/assets/icons/heart-filled.svg";
-    }
 
     //console.log(fotos)
 
@@ -41,7 +34,7 @@ function Gallery( ) {
           <Card.ImgOverlay>
             <div className="elementos-card">
               <div className="boton-mg">
-                <img id="imagenMeGusta" onClick={(event) => meGusta(i,event)} src="./src/assets/icons/heart.svg"></img>
+              <IconHeart indice={i}/>
               </div>
               <div className="desc-imagen">
                 <Card.Text>
@@ -62,4 +55,3 @@ function Gallery( ) {
 }
 
 export default Gallery;
-
